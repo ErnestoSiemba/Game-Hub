@@ -1,13 +1,23 @@
-import { Button, Heading } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 function App() {
   return (
-    <>
-      <Heading size="6xl">I am a heading.</Heading>
-      <Button colorPalette={"teal"} variant={"solid"}>
-        Hello World
-      </Button>
-    </>
+    <Grid
+      templateAreas={{
+        base: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`,
+      }}
+    >
+      <GridItem area="nav" bg="coral">
+        Nav
+      </GridItem>
+      <GridItem area="aside" bg="gold" hideBelow="lg">
+        Aside
+      </GridItem>
+      <GridItem area="main" bg="dodgerblue">
+        Main
+      </GridItem>
+    </Grid>
   );
 }
 

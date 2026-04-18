@@ -12,6 +12,7 @@ const NavBar = () => {
         <Switch.Root
           checked={colorMode === "dark"}
           onCheckedChange={toggleColorMode}
+          colorPalette="green"
         >
           <Switch.HiddenInput />
           <Switch.Control />

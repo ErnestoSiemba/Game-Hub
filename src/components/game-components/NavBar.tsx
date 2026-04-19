@@ -6,7 +6,7 @@ const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <HStack justifyContent="space-between" padding="10px">
+    <HStack justifyContent="space-between" >
       <Image src={logo} boxSize="60px" />
       <HStack>
         <Switch.Root

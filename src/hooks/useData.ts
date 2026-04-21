@@ -23,6 +23,7 @@ const useData = <T>(
     setLoading(true);
     setError("");
     // Clear the previous result set so the next genre loads into a clean grid.
+    // this resets the game grid while rendering a new genre
     setData([]);
 
     apiClient

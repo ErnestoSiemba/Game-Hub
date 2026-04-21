@@ -16,7 +16,7 @@ const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <HStack justifyContent="space-between" >
+    <HStack justifyContent="space-between">
       <Image
         src={logo}
         boxSize="60px"

@@ -1,14 +1,19 @@
 import useGenres, { type Genre } from "@/hooks/useGenres";
+import { useColorModeValue } from "@/components/ui/color-mode";
 import getCroppedImageUrl from "@/services/image-url";
 import { HStack, Image, Link, Spinner } from "@chakra-ui/react";
 import { List } from "@chakra-ui/react/list";
 
 interface Props {
+  selectedGenre: Genre | null;
   onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
+  // Keep the selected genre readable in both light and dark themes.
+  const activeGenreColor = useColorModeValue("green.600", "green.300");
+
   if (error) return null;
   if (isLoading) return <Spinner />;
   return (
@@ -25,6 +30,10 @@ const GenreList = ({ onSelectGenre }: Props) => {
               onClick={() => onSelectGenre(genre)}
               variant={"plain"}
               fontSize="lg"
+              color={
+                selectedGenre?.id === genre.id ? activeGenreColor : undefined
+              }
+              fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
             >
               {genre.name}
             </Link>

@@ -59,13 +59,25 @@ cd Game-Hub
 npm install
 ```
 
-4. Start the development server:
+4. Create a local environment file:
+
+```bash
+cp .env.example .env
+```
+
+5. Open `.env` and add your RAWG API key:
+
+```bash
+VITE_RAWG_API_KEY=your_rawg_api_key_here
+```
+
+6. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-5. Open the local URL shown by Vite, usually:
+7. Open the local URL shown by Vite, usually:
 
 ```text
 http://localhost:5173
@@ -82,7 +94,7 @@ http://localhost:5173
 
 This project uses the [RAWG Video Games Database API](https://rawg.io/apidocs).
 
-The current implementation includes an API key in the client configuration at `src/services/api-client.ts`. For production use, move the key into environment variables before deploying the app.
+The app expects a `VITE_RAWG_API_KEY` environment variable in a local `.env` file.
 
 ## Deployment Notes
 

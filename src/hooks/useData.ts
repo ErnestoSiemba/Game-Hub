@@ -11,7 +11,7 @@ interface FetchResponse<T> {
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
-  deps: unknown[] = []
+  deps?: any
 ) => {
     const [data, setData] = useState<T[]>([]);
       const [error, setError] = useState("");
@@ -37,7 +37,7 @@ const useData = <T>(
     
         //   return a clean up function after calling the AbortController
         return () => controller.abort();
-      }, deps);
+      }, deps ? [...deps] : []);
     
       return { data, error, isLoading };
 

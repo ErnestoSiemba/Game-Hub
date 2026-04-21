@@ -21,7 +21,7 @@ const GameGrid = ({ selectedGenre }: Props) => {
         padding="10px"
         gap={3}
       >
-        {isLoading &&
+        {isLoading && data.length === 0 &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>
               <GameCardSkeleton  />

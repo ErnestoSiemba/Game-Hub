@@ -13,17 +13,21 @@ const spin = keyframes`
   }
 `;
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <HStack >
+    <HStack>
       <Image
         src={logo}
         boxSize="60px"
         animation={`${spin} 6s linear infinite`}
       />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <HStack>
         <Switch.Root
           checked={colorMode === "dark"}

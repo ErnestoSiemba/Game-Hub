@@ -2,6 +2,7 @@ import { HStack, Image, Switch } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
 import logo from "../../assets/logo.webp";
 import { useColorMode } from "../ui/color-mode";
+import SearchInput from "./SearchInput";
 
 const spin = keyframes`
   from {
@@ -16,12 +17,13 @@ const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <HStack justifyContent="space-between">
+    <HStack >
       <Image
         src={logo}
         boxSize="60px"
         animation={`${spin} 6s linear infinite`}
       />
+      <SearchInput />
       <HStack>
         <Switch.Root
           checked={colorMode === "dark"}
@@ -30,7 +32,7 @@ const NavBar = () => {
         >
           <Switch.HiddenInput />
           <Switch.Control />
-          <Switch.Label>Dark Mode</Switch.Label>
+          <Switch.Label whiteSpace="nowrap">Dark Mode</Switch.Label>
         </Switch.Root>
       </HStack>
     </HStack>

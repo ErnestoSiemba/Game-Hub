@@ -1,4 +1,4 @@
-import { Button, HStack, Menu, Portal } from "@chakra-ui/react";
+import { Button, HStack, Menu, Portal, Text } from "@chakra-ui/react";
 import { LuChevronDown } from "react-icons/lu";
 
 interface Props {
@@ -25,7 +25,12 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <Menu.Trigger asChild>
         <Button variant="outline" size="sm">
           <HStack gap="2">
-            <span>Order By: {currentSortOrder?.label || "Relevance"}</span>
+            <Text>
+              Order By:{" "}
+              <Text as="span" fontWeight="bold">
+                {currentSortOrder?.label || "Relevance"}
+              </Text>
+            </Text>
             <LuChevronDown />
           </HStack>
         </Button>
